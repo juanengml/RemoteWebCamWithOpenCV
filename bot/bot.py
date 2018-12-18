@@ -10,7 +10,7 @@ import os
 
 std = """Oi, sou um bot que avisa quem esta na sua casa """
 
-TOKEN = " 131231231313 "
+TOKEN = "744893793:AAGkn_KA3Huq1IQFIojWXZ2x4pb7LRh0Ixc"
 
 img_path = "../webapp/face.jpg"
 
@@ -29,23 +29,23 @@ MessageLoop(bot, handle).run_as_thread()
 print ('Listening ...')
 
 # Keep the program running.
-chat_id = 123
+
 while 1:
     face = int(os.popen("cat status.txt").read().split()[0])
     if face == 1:
-     bot.sendMessage(chat_id, "Face Detectada")
+     bot.sendMessage("120773442", "Face Detectada")
      print "Face Detectada"
      try:
-         bot.sendPhoto(chat_id,open(img_path, 'rb'))
+         bot.sendPhoto("120773442",open(img_path, 'rb'))
          print "Face Detectada"
      except:
-         bot.sendPhoto(chat_id,open(img_path, 'rb'))
+         bot.sendPhoto("120773442",open(img_path, 'rb'))
          print "Face Detectada"
      else:
-         bot.sendPhoto(chat_id,open(img_path, 'rb'))
+         bot.sendPhoto("120773442",open(img_path, 'rb'))
          print "Face Detectada"
      finally:
-         bot.sendPhoto(chat_id,open(img_path, 'rb'))
+         bot.sendPhoto("120773442",open(img_path, 'rb'))
          print "Face Detectada"
      
      time.sleep(5)

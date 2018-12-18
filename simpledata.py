@@ -2,8 +2,10 @@ import urllib
 import cv2
 import numpy as np 
 
-url = "http://10.0.90.51:8080/shot.jpg"
+url = "http://192.168.0.27:8080/shot.jpg"
 imgResp =  urllib.urlopen(url)
+
+classificadorFace =  cv2.CascadeClassifier('cascades/haarcascade_frontalface_default.xml')
 
 while True:
     imgResp=urllib.urlopen(url)
@@ -12,3 +14,4 @@ while True:
     cv2.imshow('test',img)
     if ord('q')==cv2.waitKey(10):
         exit(0)
+
