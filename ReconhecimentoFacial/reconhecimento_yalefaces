@@ -1,0 +1,60 @@
+import os
+import glob
+import _pickle as cPickle
+import dlib
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+from PIL import Image
+
+
+detectorface = dlib.get_frontal_face_detector()
+detectorpontos = dlib.shape_predictor("recursos/shape_predictor_68_face_landmarks.dat")
+rechonecimentofacial = dlib.face_recognition_model_v1("recursos/dlib_face_recognition_resnet_model_v1.dat")
+
+indice = {}
+idx = 0
+descritoresfaciais = None
+
+for arquivo in glob.glob(os.path.join("yaleface/treinamento", "*.gif")):
+  imagemface = Image.open(arquivo).convert('RGB')
+  imagem = np.array(imagemface, 'uint8')
+  facesdetectadas = detectorface(imagem, 1)
+  numerofacesdetectadas = len(facesdetectadas)
+  #print(numerofacesdetectadas)
+  
+  if numerofacesdetectadas > 1:
+    print("ha mais de uma face na imagem {} ".format(arquivo))
+    exit(0)
+  elif numerofacesdetectadas < 1:
+    print("nenhuma face encontrada no arquivo {} ".format(arquivo))
+    exit(0)
+  
+  for face in facesdetectadas:
+    pontosfaciais = detectorpontos(imagem, face)
+    descritorfacial = rechonecimentofacial.compute_face_descriptor(imagem, pontosfaciais)
+    #print(format(arquivo))
+    #print(len(descritorfacial))
+    #print(descritorfacial)
+    
+    listadescritorfacial = [df for df in descritorfacial]
+    
+    npArraydescritorfacial = np.asarray(listadescritorfacial, dtype=np.float64)
+    #print(npArraydescritorfacial)    
+    
+    npArraydescritorfacial = npArraydescritorfacial[np.newaxis, :]
+    #print(npArraydescritorfacial) 
+    
+    if descritoresfaciais is None:
+      descritoresfaciais = npArraydescritorfacial
+    else:
+      descritoresfaciais = np.concatenate((descritoresfaciais, npArraydescritorfacial), axis=0)
+      
+    indice[idx] = arquivo
+    idx += 1
+    
+  #print("tamanho: {} formato: {} ".format(len(descritoresfaciais), descritoresfaciais.shape))
+    
+np.save("recursos/descritores_yale.npy", descritoresfaciais)
+with open("recursos/indices_yale.pickle", 'wb') as f:
+      cPickle.dump(indice, f)
