@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml-stylesheet type='text/xsl' href='image_metadata_stylesheet.xsl'?>
+<dataset>
+<name>imglab dataset</name>
+<comment>Created by imglab tool.</comment>
+<images>
+  <image file='/home/leaozinho/Documentos/RemoteWebCamWithOpenCV/ReconhecimentoFacial/relogios_treinamento/relogio1.jpg'>
+    <box top='389' left='400' width='160' height='153'/>
+  </image>
+  <image file='/home/leaozinho/Documentos/RemoteWebCamWithOpenCV/ReconhecimentoFacial/relogios_treinamento/relogio2.jpg'>
+    <box top='282' left='220' width='254' height='206'/>
+  </image>
+  <image file='/home/leaozinho/Documentos/RemoteWebCamWithOpenCV/ReconhecimentoFacial/relogios_treinamento/relogio3.jpg'>
+    <box top='252' left='341' width='288' height='264'/>
+  </image>
+  <image file='/home/leaozinho/Documentos/RemoteWebCamWithOpenCV/ReconhecimentoFacial/relogios_treinamento/relogio4.jpg'>
+    <box top='337' left='451' width='108' height='89'/>
+  </image>
+  <image file='/home/leaozinho/Documentos/RemoteWebCamWithOpenCV/ReconhecimentoFacial/relogios_treinamento/relogio5.jpg'>
+    <box top='125' left='196' width='245' height='250'/>
+  </image>
+</images>
+</dataset>

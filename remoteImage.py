@@ -2,7 +2,7 @@ import urllib
 import cv2
 import numpy as np 
 
-url = "http://192.168.0.27:8080/shot.jpg"
+url = "http://192.168.0.14:8080/shot.jpg"
 imgResp =  urllib.urlopen(url)
 
 x=0
