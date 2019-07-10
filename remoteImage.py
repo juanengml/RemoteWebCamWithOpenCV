@@ -2,13 +2,13 @@ import urllib
 import cv2
 import numpy as np 
 
-url = "http://192.168.0.27:8080/shot.jpg"
+url = "http://192.168.100.6:8080/shot.jpg"
 imgResp =  urllib.urlopen(url)
 
 x=0
 y=0
 
-cascPath = "cascades/haarcascade_frontalface_default.xml"
+cascPath = "haarcascade_frontalface_default.xml"
 faceCascade = cv2.CascadeClassifier(cascPath)
 font=cv2.FONT_HERSHEY_SIMPLEX
 
@@ -31,7 +31,6 @@ def face_DETECT(faces,frame,text):
     font=cv2.FONT_HERSHEY_SIMPLEX
     if len(faces) >= 1:
      print "Face detect"
-     #client.publish("home/sala/porta/01/status/"," 1 ")
      for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 100), 1)
         stringxy="+%s,%s"%(x,y) 
@@ -39,14 +38,13 @@ def face_DETECT(faces,frame,text):
         cv2.imwrite('face.jpg', frame)
     else:
         print "Not face "
-       # client.publish("home/sala/porta/01/status/"," 0 ")
         cv2.imwrite('face.jpg', frame)
     # DISPLAY THE RESULTING FRAME0
-    cv2.imshow(text, frame)
+    #cv2.imshow(text, frame)
     print x,y,
     print"\n"
     
-    cv2.putText(faces,'x,y',(x,y),font, 2,(255,255,255),1)
+    #cv2.putText(faces,'x,y',(x,y),font, 2,(255,255,255),1)
     
 
 
@@ -60,7 +58,7 @@ while True:
     gray0 = cv2.cvtColor(frame0, cv2.COLOR_BGR2GRAY)
     face0 = classifer(gray0)
     face_DETECT(face0,frame0,"video0")
-    cv2.imshow('test',img)
+    #cv2.imshow('test',img)
     if ord('q')==cv2.waitKey(10):
         exit(0)
 

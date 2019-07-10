@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 import cv2
+<<<<<<< HEAD
 #import sys
+=======
+import sys
+>>>>>>> cb2c3081e5e98c9a8844f1230711180789e302ee
 #import paho.mqtt.client as mqtt
 
 #client = mqtt.Client()
@@ -47,7 +51,11 @@ while True:
     
     else:
         print "Not face "
+<<<<<<< HEAD
  #       client.publish("home/sala/porta/01/status/"," 0 ")
+=======
+  #      client.publish("home/sala/porta/01/status/"," 0 ")
+>>>>>>> cb2c3081e5e98c9a8844f1230711180789e302ee
         cv2.imwrite('face.jpg', frame)
     # DISPLAY THE RESULTING FRAME
     cv2.imshow('Video', frame)
