@@ -97,7 +97,7 @@ for i in indices:
     h = box[3]
     draw_prediction(image, class_ids[i], confidences[i], round(x), round(y), round(x+w), round(y+h))
 
-cv2.imshow("object detection", image)
+#cv2.imshow("object detection", image)
 #cv2.waitKey()
     
 cv2.imwrite("object-detection.jpg", image)
