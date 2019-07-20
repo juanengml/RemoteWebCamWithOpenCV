@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 import cv2
+<<<<<<< HEAD
+#import sys
+=======
 import sys
+>>>>>>> cb2c3081e5e98c9a8844f1230711180789e302ee
 #import paho.mqtt.client as mqtt
 
 #client = mqtt.Client()
@@ -39,14 +43,29 @@ while True:
         #---To write the x,y on the middle of the rectangle.
         stringxy="+%s,%s"%(x,y) # To prepare the string with the xy values to be used with the cv2.putText function
         #In the case we want to put Xxvalue,Yyvalue we can use the following line removing #.
+<<<<<<< HEAD
         #stringaxy="X%s,Y%s"%(x,y)
+=======
+        #fig
+        stringaxy="X%s,Y%s"%(x,y) 
+>>>>>>> a08c72c142c1f4a2b77d3f347287d4f6754fd961
         cv2.putText(frame,stringxy,(x+w/2,y+h/2),font, 1,(0,0,255),1)
         cv2.imwrite('people.jpg', frame)
 
     else:
+<<<<<<< HEAD
         print "Not body "
   #      client.publish("home/sala/porta/01/status/"," 0 ")
         cv2.imwrite('body.jpg', frame)
+=======
+        print "Not face "
+<<<<<<< HEAD
+ #       client.publish("home/sala/porta/01/status/"," 0 ")
+=======
+  #      client.publish("home/sala/porta/01/status/"," 0 ")
+>>>>>>> cb2c3081e5e98c9a8844f1230711180789e302ee
+        cv2.imwrite('face.jpg', frame)
+>>>>>>> a08c72c142c1f4a2b77d3f347287d4f6754fd961
     # DISPLAY THE RESULTING FRAME
     cv2.imshow('Video', frame)
     print x,y,
